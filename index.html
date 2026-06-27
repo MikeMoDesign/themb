@@ -3,633 +3,436 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>THEMB BBS - Dial-up Connection</title>
+  
+  <title>Mike Bates — Motion Designer & Art Director</title>
+  <meta name="description" content="Portfolio of Mike Bates, motion designer and art director specializing in UI/UX animations, branding motion systems, and corporate explainers.">
+  
+  <!-- Structured Data for AEO / SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://themikebates.com/#person",
+        "name": "Mike Bates",
+        "jobTitle": "Motion Designer & Art Director",
+        "url": "https://themikebates.com",
+        "sameAs": [
+          "https://www.linkedin.com/in/mike-bates-2a76341b/"
+        ],
+        "description": "Mike Bates is a multidisciplinary motion designer, director, and art director collaborating with brands like Zazzle, First Republic Bank, UC Berkeley, T-Mobile, and Sony Interactive.",
+        "knowsAbout": [
+          "Motion Design",
+          "Art Direction",
+          "UI/UX Animations",
+          "Branding Motion Systems",
+          "Corporate Explainers",
+          "Illustration",
+          "Visual Storytelling"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://themikebates.com/#website",
+        "url": "https://themikebates.com",
+        "name": "Mike Bates Design Portfolio",
+        "publisher": {
+          "@id": "https://themikebates.com/#person"
+        }
+      }
+    ]
+  }
+  </script>
+  
+  <!-- CSS Stylesheet -->
   <link rel="stylesheet" href="style.css">
+  <!-- JavaScript Logic -->
+  <script defer src="app.js"></script>
 </head>
 <body>
-  <div class="crt-wrapper screen-distort">
-    <div class="crt-glass"></div>
-    
-    <!-- Dial-Up Connection Overlay -->
-    <div class="connect-overlay" id="connectOverlay">
-      <div class="glow-text text-center" style="margin-bottom: 20px;">
-        <h1 style="font-size: 32px; letter-spacing: 2px; margin-bottom: 5px;">THEMB SYSTEMS v1.0</h1>
-        <p style="font-size: 18px; margin: 0; opacity: 0.8;">REMOTE BULLETIN BOARD SERVICE</p>
-      </div>
-      
-      <div class="connect-console" id="connectConsole">READY TO INITIATE SEQUENCE...
-PRESS [CONNECT] OR THE [ENTER] KEY TO ESTABLISH CARRIER.</div>
-      
-      <button class="connect-btn" id="connectBtn" onclick="startConnection()">Connect (14.4K)</button>
-    </div>
 
-    <!-- Main BBS Screen (Initially Hidden) -->
-    <div class="terminal-screen" id="terminalScreen" style="display: none;">
-      <div id="terminalHistory"></div>
+  <!-- Header Navigation -->
+  <header class="site-header">
+    <div class="container header-wrap">
+      <a href="#home" class="logo-link hovering-target">
+        <span>MIKE BATES</span>
+      </a>
       
-      <!-- Placeholder for home screen once connected -->
-      <div id="homeScreenContent" style="display: none;">
-        <div class="line-decor">======================================================================</div>
-        <div class="ascii-logo"> ████████╗██╗  ██╗███████╗███╗   ███╗██████╗ 
- ╚══██╔══╝██║  ██║██╔════╝████╗ ████║██╔══██╗
-    ██║   ███████║█████╗  ██╔████╔██║██████╦╝
-    ██║   ██╔══██║██╔══╝  ██║╚██╔╝██║██╔══██╗
-    ██║   ██║  ██║███████╗██║ ╚═╝ ██║██████╦╝
-    ╚═╝   ╚═╝  ╚═╝╚══════╝╚═╝     ╚═╝╚═════╝ </div>
-        <div class="line-decor">======================================================================</div>
-        <div class="glow-text">WELCOME TO THEMB BULLETIN BOARD SERVICE (BBS)</div>
-        <div>ESTABLISHED: 2026 | BAUD RATE: 14400 bps | LINE: COM1</div>
-        <div class="line-decor">----------------------------------------------------------------------</div>
-        <p>You have successfully logged in as <span class="highlight">GUEST</span>. This website is currently acting as a retro placeholder to verify GitHub Pages and domain redirection configuration.</p>
-        
-        <p>Please select an option below (type the number and press ENTER, or click on the menu option):</p>
-        
-        <ul class="menu-options">
-          <li onclick="handleMenuSelection('1')">
-            <span class="menu-key">1</span> <span class="highlight">ABOUT THEMB</span> - Design studio background and mission.
-          </li>
-          <br>
-          <li onclick="handleMenuSelection('2')">
-            <span class="menu-key">2</span> <span class="highlight">PROJECTS ARCHIVE</span> - View current design portfolio.
-          </li>
-          <br>
-          <li onclick="handleMenuSelection('3')">
-            <span class="menu-key">3</span> <span class="highlight">CONTACT TRANSMITTER</span> - Get in touch with us.
-          </li>
-          <br>
-          <li onclick="handleMenuSelection('4')">
-            <span class="menu-key">4</span> <span class="highlight">PHOSPHOR COLOR</span> - Cycle display theme.
-          </li>
+      <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="nav-container">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#home" class="hovering-target">HOME</a></li>
+          <li><a href="#work" class="hovering-target">WORK</a></li>
+          <li><a href="#connect" class="hovering-target">CONNECT</a></li>
         </ul>
-        <div class="line-decor">----------------------------------------------------------------------</div>
-        <p>Available commands: <span class="highlight">help</span>, <span class="highlight">clear</span>, <span class="highlight">about</span>, <span class="highlight">projects</span>, <span class="highlight">contact</span>, <span class="highlight">theme</span>, <span class="highlight">date</span>, <span class="highlight">exit</span>.</p>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HOME & REEL SECTION -->
+  <section class="nav-section home-section" id="home">
+    <div class="container">
+      
+      <!-- Embedded Showreel at the very top (first thing user sees) -->
+      <div class="showreel-wrap hovering-target">
+        <div class="aspect-16-9">
+          <video controls playsinline preload="metadata">
+            <source src="assets/showreel.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
       </div>
 
-      <div class="terminal-input-line" id="inputLine" style="display: none;">
-        <span class="prompt-prefix">GUEST@THEMB_BBS:~$</span>
-        <input type="text" class="terminal-input" id="terminalInput" autofocus autocomplete="off" spellcheck="false" maxlength="80">
-        <span class="cursor" id="customCursor"></span>
+      <!-- Welcome statement below the video -->
+      <h1 class="welcome-title">Creative Lead & Motion Expert</h1>
+      <p class="welcome-subtitle">
+        Strategic visual direction specializing in advanced motion design.
+      </p>
+      
+      <div class="intro-links">
+        <a href="#work" class="btn-primary hovering-target">
+          Explore Work
+          <svg style="width:16px; height:16px; fill:currentColor" viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+        </a>
+      </div>
+
+      <!-- Client Brands Row -->
+      <div class="brands-row">
+        <h2 class="brands-row-title">Client Collaborations</h2>
+        <div style="width: 100%; overflow: hidden;">
+          <div class="marquee-content">
+            <span class="marquee-item">T-MOBILE</span>
+            <span class="marquee-item">SONY INTERACTIVE</span>
+            <span class="marquee-item">FIRST REPUBLIC BANK</span>
+            <span class="marquee-item">UC BERKELEY</span>
+            <span class="marquee-item">ZAZZLE</span>
+            <span class="marquee-item">COLGATE</span>
+            <span class="marquee-item">ORRICK</span>
+            <span class="marquee-item">VIVUN</span>
+            <span class="marquee-item">LOGROCKET</span>
+            
+            <!-- Duplicate for loop -->
+            <span class="marquee-item">T-MOBILE</span>
+            <span class="marquee-item">SONY INTERACTIVE</span>
+            <span class="marquee-item">FIRST REPUBLIC BANK</span>
+            <span class="marquee-item">UC BERKELEY</span>
+            <span class="marquee-item">ZAZZLE</span>
+            <span class="marquee-item">COLGATE</span>
+            <span class="marquee-item">ORRICK</span>
+            <span class="marquee-item">VIVUN</span>
+            <span class="marquee-item">LOGROCKET</span>
+          </div>
+        </div>
       </div>
     </div>
+  </section>
 
-    <!-- Retro Status Bar -->
-    <div class="status-bar">
-      <div>
-        <span class="status-bar-item">NODE: 01</span>
-        <span class="status-bar-item">SPEED: 14.4 KBPS</span>
-        <span class="status-bar-item">THEME: <span id="currentThemeName">GREEN</span></span>
+  <!-- WORK SECTION -->
+  <section class="nav-section works-section" id="work">
+    <div class="container">
+      
+      <!-- Category Filter Bar -->
+      <div class="filter-wrap">
+        <button class="filter-btn active hovering-target" data-filter="all">ALL</button>
+        <button class="filter-btn hovering-target" data-filter="motion">MOTION DESIGN</button>
+        <button class="filter-btn hovering-target" data-filter="explainers">EXPLAINERS</button>
+        <button class="filter-btn hovering-target" data-filter="illustration">ILLUSTRATION</button>
       </div>
-      <div>
-        <span>THEMB.DESIGN &copy; 2026</span>
+
+      <!-- Portfolio Direct Media Grid -->
+      <div class="works-grid" id="worksGrid">
+
+        <!-- 1. Experience Animations | Zazzle -->
+        <article class="work-item" data-category="motion">
+          <div class="work-media-scroll">
+            <div class="work-media-container">
+              <img src="assets/zazzle_micro_1.gif" alt="Zazzle microinteraction scene 01">
+            </div>
+            <div class="work-media-container">
+              <img src="assets/zazzle_micro_2.gif" alt="Zazzle microinteraction scene 02">
+            </div>
+          </div>
+          <div class="work-info">
+            <div class="work-meta-header">
+              <span class="work-client">Zazzle</span>
+              <span class="work-tag">Motion</span>
+            </div>
+            <h3 class="work-title">Experience Animations</h3>
+            <p class="work-desc">Lead animator for creating style and brand alignment for site accent moments and microinteractions.</p>
+          </div>
+        </article>
+
+        <!-- 2. Site Banners | Zazzle -->
+        <article class="work-item" data-category="motion">
+          <div class="work-media-scroll">
+            <div class="work-media-container">
+              <div class="aspect-16-9">
+                <video controls playsinline preload="metadata">
+                  <source src="assets/zazzle_banner_1.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+            <div class="work-media-container">
+              <div class="aspect-16-9">
+                <video controls playsinline preload="metadata">
+                  <source src="assets/zazzle_banner_2.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+          </div>
+          <div class="work-info">
+            <div class="work-meta-header">
+              <span class="work-client">Zazzle</span>
+              <span class="work-tag">Motion</span>
+            </div>
+            <h3 class="work-title">Promo Site Banners</h3>
+            <p class="work-desc">Concepted and led the production for several animated banner promos.</p>
+          </div>
+        </article>
+
+        <!-- 3. Icon Library Redesign | Zazzle -->
+        <article class="work-item" data-category="illustration">
+          <div class="work-media-container">
+            <img src="assets/zazzle_icon_4.png" alt="UI icon guidelines sheet">
+          </div>
+          <div class="work-info">
+            <div class="work-meta-header">
+              <span class="work-client">Zazzle</span>
+              <span class="work-tag">Illustration</span>
+            </div>
+            <h3 class="work-title">Icon Library Redesign</h3>
+            <p class="work-desc">Set the standards and style for a redesign of the icon library.</p>
+          </div>
+        </article>
+
+        <!-- 4. Email Promo GIFs | Zazzle -->
+        <article class="work-item" data-category="motion">
+          <div class="work-media-row">
+            <div class="work-media-container">
+              <img src="assets/zazzle_email_1.gif" alt="Email GIF discount promo">
+            </div>
+            <div class="work-media-container">
+              <img src="assets/zazzle_email_2.gif" alt="Email GIF corporate gifts promo">
+            </div>
+          </div>
+          <div class="work-info">
+            <div class="work-meta-header">
+              <span class="work-client">Zazzle</span>
+              <span class="work-tag">Motion</span>
+            </div>
+            <h3 class="work-title">Email Promo GIFs</h3>
+            <p class="work-desc">Lead style and template creation for several promotional email series. Developed methods to reduce GIF sizes under 1MB.</p>
+          </div>
+        </article>
+
+        <!-- 5. Video Display Motion Design | First Republic Bank -->
+        <article class="work-item" data-category="motion">
+          <div class="work-media-container">
+            <div class="aspect-16-9">
+              <video controls playsinline preload="metadata">
+                <source src="assets/first_rep_lobby.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+          <div class="work-info">
+            <div class="work-meta-header">
+              <span class="work-client">First Republic</span>
+              <span class="work-tag">Motion</span>
+            </div>
+            <h3 class="work-title">Lobby Display Motion Design</h3>
+            <p class="work-desc">Created motion designs for static campaigns when displayed on video screens at branches nationwide.</p>
+          </div>
+        </article>
+
+        <!-- 6. T-Mobile World Series Ballpark Promo -->
+        <article class="work-item" data-category="motion">
+          <div class="work-media-container">
+            <div class="aspect-16-9">
+              <video controls playsinline preload="metadata">
+                <source src="assets/tmobile_ballpark.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+          <div class="work-info">
+            <div class="work-meta-header">
+              <span class="work-client">T-Mobile</span>
+              <span class="work-tag">Motion</span>
+            </div>
+            <h3 class="work-title">World Series Ballpark Promo</h3>
+            <p class="work-desc">Stadium-screens sequence engineered to dynamically scale across variable wide stadium screen aspects.</p>
+          </div>
+        </article>
+
+        <!-- 7. UC Berkeley Game Theory Series -->
+        <article class="work-item" data-category="explainers">
+          <div class="work-media-container">
+            <div class="aspect-16-9">
+              <video controls playsinline preload="metadata">
+                <source src="assets/berkeley_game_theory.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+          <div class="work-info">
+            <div class="work-meta-header">
+              <span class="work-client">UC Berkeley</span>
+              <span class="work-tag">Explainers</span>
+            </div>
+            <h3 class="work-title">Game Theory Explainer Series</h3>
+            <p class="work-desc">Directed and animated lessons for Haas School of Business curriculum series.</p>
+          </div>
+        </article>
+
+        <!-- 8. Company Culture Series | First Republic Bank -->
+        <article class="work-item" data-category="explainers">
+          <div class="work-media-scroll">
+            <div class="work-media-container">
+              <img src="assets/first_rep_culture_1.gif" alt="Culture story relationships loop">
+            </div>
+            <div class="work-media-container">
+              <img src="assets/first_rep_culture_2.gif" alt="Culture story teamwork loop">
+            </div>
+          </div>
+          <div class="work-info">
+            <div class="work-meta-header">
+              <span class="work-client">First Republic</span>
+              <span class="work-tag">Explainers</span>
+            </div>
+            <h3 class="work-title">Company Culture Series</h3>
+            <p class="work-desc">Wrote script treatments and directed two multi-video series summarizing banking culture guidelines.</p>
+          </div>
+        </article>
+
+        <!-- 9. Learning Courses | First Republic Bank -->
+        <article class="work-item" data-category="explainers">
+          <div class="work-media-scroll">
+            <div class="work-media-container">
+              <img src="assets/first_rep_course_1.gif" alt="L&D course onboarding loop">
+            </div>
+            <div class="work-media-container">
+              <img src="assets/first_rep_course_2.gif" alt="L&D course training loop">
+            </div>
+          </div>
+          <div class="work-info">
+            <div class="work-meta-header">
+              <span class="work-client">First Republic</span>
+              <span class="work-tag">Explainers</span>
+            </div>
+            <h3 class="work-title">Learning Portal Courses</h3>
+            <p class="work-desc">Designed visual character assets and custom layouts, animating interactive lessons for the internal L&D portal.</p>
+          </div>
+        </article>
+
+        <!-- 10. Explainer Story | Factorysure -->
+        <article class="work-item" data-category="explainers">
+          <div class="work-media-container">
+            <div class="aspect-16-9">
+              <video controls playsinline preload="metadata">
+                <source src="assets/factorysure_explainer.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+          <div class="work-info">
+            <div class="work-meta-header">
+              <span class="work-client">Factorysure</span>
+              <span class="work-tag">Explainers</span>
+            </div>
+            <h3 class="work-title">Explainer Story</h3>
+            <p class="work-desc">Directed and animated a whimsical corporate explainer adventure summarizing cloud infrastructure optimization.</p>
+          </div>
+        </article>
+
+        <!-- 11. Climate Forum Graphic | First Republic Bank -->
+        <article class="work-item" data-category="illustration">
+          <div class="work-media-container">
+            <img src="assets/climate_forum.png" alt="Clean energy forum illustration design">
+          </div>
+          <div class="work-info">
+            <div class="work-meta-header">
+              <span class="work-client">First Republic</span>
+              <span class="work-tag">Illustration</span>
+            </div>
+            <h3 class="work-title">Climate Forum Graphic</h3>
+            <p class="work-desc">Hero digital graphic representing clean energy architecture used for environmental summit key art.</p>
+          </div>
+        </article>
+
+        <!-- 12. Learning Platform Launch | First Republic Bank -->
+        <article class="work-item" data-category="illustration">
+          <div class="work-media-container">
+            <img src="assets/platform_launch.png" alt="Learning platform launch key banner illustration">
+          </div>
+          <div class="work-info">
+            <div class="work-meta-header">
+              <span class="work-client">First Republic</span>
+              <span class="work-tag">Illustration</span>
+            </div>
+            <h3 class="work-title">Learning Platform Launch</h3>
+            <p class="work-desc">Promotional banner art designed to introduce the bank's internal staff training portal system.</p>
+          </div>
+        </article>
+
       </div>
     </div>
-  </div>
+  </section>
 
-  <script>
-    let audioCtx = null;
-    let isConnected = false;
-    let themeIndex = 0;
-    const themes = [
-      { name: 'GREEN', class: '' },
-      { name: 'AMBER', class: 'amber-theme' },
-      { name: 'CYAN', class: 'cyan-theme' },
-      { name: 'PAPER', class: 'white-theme' }
-    ];
-
-    // Initialize audio context safely
-    function initAudio() {
-      if (!audioCtx) {
-        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-      }
-      if (audioCtx.state === 'suspended') {
-        audioCtx.resume();
-      }
-    }
-
-    // Play retro beep sound
-    function playBeep(freq, duration, type = 'sine', volume = 0.05) {
-      if (!audioCtx) return;
-      try {
-        const osc = audioCtx.createOscillator();
-        const gain = audioCtx.createGain();
+  <!-- CONNECT SECTION -->
+  <section class="nav-section about-contact-section" id="connect">
+    <div class="container about-contact-grid">
+      <div>
+        <h2 class="section-title">Connect</h2>
+        <p class="about-text">
+          Mike Bates is a multidisciplinary motion designer, director, and art director. He collaborates with creative teams, marketing groups, and digital agencies to construct visual assets that translate complex features into satisfying, elegant animations.
+        </p>
+        <p class="about-text">
+          Combining precise vector layouts with smooth dynamic choreography, his work spans across user experience microinteractions, high-impact stadium promo screens, educational video series, and conceptual brand systems.
+        </p>
         
-        osc.type = type;
-        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
-        
-        gain.gain.setValueAtTime(volume, audioCtx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + duration);
-        
-        osc.connect(gain);
-        gain.connect(audioCtx.destination);
-        
-        osc.start();
-        osc.stop(audioCtx.currentTime + duration);
-      } catch (e) {
-        console.error("Audio playback error: ", e);
-      }
-    }
+        <div class="social-links" style="display: flex; flex-direction: column; align-items: flex-start; gap: 12px; margin-top: 32px;">
+          <!-- Obfuscated Email Link -->
+          <button class="email-btn hovering-target" id="emailBtn" data-user="setabekim" data-domain="moc.liamg">
+            <svg style="width:16px; height:16px; fill:currentColor" viewBox="0 0 24 24">
+              <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+            </svg>
+            <span id="emailText">Contact via Email</span>
+          </button>
 
-    // Play click sound for typewriter and keystroke simulation
-    function playClickSound() {
-      if (!audioCtx) return;
-      try {
-        const osc = audioCtx.createOscillator();
-        const gain = audioCtx.createGain();
-        osc.type = 'triangle';
-        osc.frequency.setValueAtTime(2600 + Math.random() * 400, audioCtx.currentTime);
-        
-        gain.gain.setValueAtTime(0.012, audioCtx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.015);
-        
-        osc.connect(gain);
-        gain.connect(audioCtx.destination);
-        osc.start();
-        osc.stop(audioCtx.currentTime + 0.018);
-      } catch (e) {}
-    }
+          <a href="https://www.linkedin.com/in/mike-bates-2a76341b/" target="_blank" class="social-btn hovering-target">
+            <svg style="width:16px; height:16px; fill:currentColor" viewBox="0 0 24 24">
+              <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+            </svg>
+            LinkedIn Profile
+          </a>
+        </div>
+      </div>
+      
+      <div style="background-color: var(--bg-panel); padding: 40px; border-radius: 8px; border: 1px solid var(--border-color);">
+        <h3 style="font-family: var(--font-heading); font-size: 20px; margin-bottom: 20px;">Client Experience</h3>
+        <p class="about-text" style="font-size: 14px; margin-bottom: 12px; line-height: 1.8;">
+          ZAZZLE &bull; FIRST REPUBLIC BANK &bull; UC BERKELEY &bull; T-MOBILE &bull; PG&E &bull; SONY INTERACTIVE ENTERTAINMENT &bull; COLGATE &bull; ORRICK &bull; BIONIC &bull; NYLAS &bull; VIVUN &bull; EARNIN &bull; ROLLWORKS &bull; WORKRAMP &bull; LOGROCKET &bull; OPTUM &bull; HARNESS &bull; AMSIVE &bull; SOJERN
+        </p>
+      </div>
+    </div>
+  </section>
 
-    // Handle dial-up sound synthesis
-    function playDialUpSound(onConsoleUpdate, onCompleted) {
-      initAudio();
-      const now = audioCtx.currentTime;
-      
-      // 1. Dial Tone: 350Hz + 440Hz mixed
-      const osc1 = audioCtx.createOscillator();
-      const osc2 = audioCtx.createOscillator();
-      const gain1 = audioCtx.createGain();
-      const gain2 = audioCtx.createGain();
-      
-      osc1.frequency.setValueAtTime(350, now);
-      osc2.frequency.setValueAtTime(440, now);
-      
-      gain1.gain.setValueAtTime(0.03, now);
-      gain2.gain.setValueAtTime(0.03, now);
-      
-      osc1.connect(gain1);
-      osc2.connect(gain2);
-      
-      gain1.connect(audioCtx.destination);
-      gain2.connect(audioCtx.destination);
-      
-      osc1.start(now);
-      osc2.start(now);
-      
-      onConsoleUpdate("DIALING SUBSCRIBER LINE COM1...");
-      
-      // Stop dial tone after 1.2s and start DTMF tones
-      const dtmfStart = now + 1.2;
-      gain1.gain.setValueAtTime(0, dtmfStart);
-      gain2.gain.setValueAtTime(0, dtmfStart);
-      osc1.stop(dtmfStart + 0.1);
-      osc2.stop(dtmfStart + 0.1);
-      
-      // DTMF frequency pairs for 1-920-0007 (BBS number)
-      const dtmfKeys = [
-        [697, 1209], // 1
-        [852, 1477], // 9
-        [697, 1336], // 2
-        [941, 1336], // 0
-        [941, 1336], // 0
-        [941, 1336], // 0
-        [852, 1209]  // 7
-      ];
-      
-      let keyTime = dtmfStart;
-      dtmfKeys.forEach((freqs, idx) => {
-        const dOsc1 = audioCtx.createOscillator();
-        const dOsc2 = audioCtx.createOscillator();
-        const dGain1 = audioCtx.createGain();
-        const dGain2 = audioCtx.createGain();
-        
-        dOsc1.frequency.setValueAtTime(freqs[0], keyTime);
-        dOsc2.frequency.setValueAtTime(freqs[1], keyTime);
-        
-        dGain1.gain.setValueAtTime(0, keyTime);
-        dGain1.gain.linearRampToValueAtTime(0.03, keyTime + 0.02);
-        dGain1.gain.setValueAtTime(0.03, keyTime + 0.13);
-        dGain1.gain.linearRampToValueAtTime(0, keyTime + 0.15);
-        
-        dGain2.gain.setValueAtTime(0, keyTime);
-        dGain2.gain.linearRampToValueAtTime(0.03, keyTime + 0.02);
-        dGain2.gain.setValueAtTime(0.03, keyTime + 0.13);
-        dGain2.gain.linearRampToValueAtTime(0, keyTime + 0.15);
-        
-        dOsc1.connect(dGain1);
-        dOsc2.connect(dGain2);
-        dGain1.connect(audioCtx.destination);
-        dGain2.connect(audioCtx.destination);
-        
-        dOsc1.start(keyTime);
-        dOsc2.start(keyTime);
-        
-        dOsc1.stop(keyTime + 0.18);
-        dOsc2.stop(keyTime + 0.18);
-        
-        setTimeout(() => {
-          onConsoleUpdate(`ATDT 1-920-0007... ${[1, 9, 2, 0, 0, 0, 7].slice(0, idx+1).join('')}`);
-        }, (keyTime - now) * 1000);
-        
-        keyTime += 0.20;
-      });
-      
-      // 3. Ringing tone
-      const ringStart = keyTime + 0.1;
-      setTimeout(() => {
-        onConsoleUpdate("RINGING...");
-      }, (ringStart - now) * 1000);
-      
-      const rOsc1 = audioCtx.createOscillator();
-      const rOsc2 = audioCtx.createOscillator();
-      const rGain = audioCtx.createGain();
-      
-      rOsc1.frequency.setValueAtTime(440, ringStart);
-      rOsc2.frequency.setValueAtTime(480, ringStart);
-      
-      rGain.gain.setValueAtTime(0, ringStart);
-      rGain.gain.linearRampToValueAtTime(0.03, ringStart + 0.1);
-      rGain.gain.setValueAtTime(0.03, ringStart + 1.0);
-      rGain.gain.linearRampToValueAtTime(0, ringStart + 1.1);
-      
-      rOsc1.connect(rGain);
-      rOsc2.connect(rGain);
-      rGain.connect(audioCtx.destination);
-      
-      rOsc1.start(ringStart);
-      rOsc2.start(ringStart);
-      rOsc1.stop(ringStart + 1.2);
-      rOsc2.stop(ringStart + 1.2);
-      
-      // 4. Handshake Static / Screech
-      const handshakeStart = ringStart + 1.3;
-      setTimeout(() => {
-        onConsoleUpdate("CARRIER DETECTED. HANDSHAKE IN PROGRESS...");
-      }, (handshakeStart - now) * 1000);
-      
-      // White noise buffer
-      const bufferSize = audioCtx.sampleRate * 2.0; 
-      const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
-      const data = buffer.getChannelData(0);
-      for (let i = 0; i < bufferSize; i++) {
-        data[i] = Math.random() * 2 - 1;
-      }
-      
-      const noiseNode = audioCtx.createBufferSource();
-      noiseNode.buffer = buffer;
-      
-      const filter = audioCtx.createBiquadFilter();
-      filter.type = 'bandpass';
-      filter.frequency.setValueAtTime(1200, handshakeStart);
-      filter.Q.setValueAtTime(1.5, handshakeStart);
-      
-      const noiseGain = audioCtx.createGain();
-      noiseGain.gain.setValueAtTime(0, handshakeStart);
-      noiseGain.gain.linearRampToValueAtTime(0.02, handshakeStart + 0.1);
-      
-      filter.frequency.setValueAtTime(1600, handshakeStart + 0.4);
-      filter.frequency.exponentialRampToValueAtTime(600, handshakeStart + 1.0);
-      filter.frequency.exponentialRampToValueAtTime(2000, handshakeStart + 1.5);
-      noiseGain.gain.setValueAtTime(0.02, handshakeStart + 1.7);
-      noiseGain.gain.linearRampToValueAtTime(0, handshakeStart + 2.0);
-      
-      noiseNode.connect(filter);
-      filter.connect(noiseGain);
-      noiseGain.connect(audioCtx.destination);
-      
-      noiseNode.start(handshakeStart);
-      noiseNode.stop(handshakeStart + 2.0);
-      
-      // Sweep tones (Carrier negotiation)
-      const carrierOsc = audioCtx.createOscillator();
-      const carrierGain = audioCtx.createGain();
-      carrierOsc.type = 'sawtooth';
-      carrierOsc.frequency.setValueAtTime(2100, handshakeStart + 0.2);
-      carrierOsc.frequency.setValueAtTime(1300, handshakeStart + 0.8);
-      carrierOsc.frequency.linearRampToValueAtTime(700, handshakeStart + 1.6);
-      
-      carrierGain.gain.setValueAtTime(0, handshakeStart + 0.2);
-      carrierGain.gain.linearRampToValueAtTime(0.012, handshakeStart + 0.3);
-      carrierGain.gain.setValueAtTime(0.012, handshakeStart + 1.5);
-      carrierGain.gain.linearRampToValueAtTime(0, handshakeStart + 1.9);
-      
-      carrierOsc.connect(carrierGain);
-      carrierGain.connect(audioCtx.destination);
-      carrierOsc.start(handshakeStart + 0.2);
-      carrierOsc.stop(handshakeStart + 2.0);
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <a href="#home" class="back-to-top hovering-target">↑ Back to Top</a>
+      <p>&copy; 2026 Mike Bates.</p>
+    </div>
+  </footer>
 
-      // 5. Connection Established Beeps
-      const connectTime = handshakeStart + 2.0;
-      setTimeout(() => {
-        onConsoleUpdate("CONNECT 14400 / V.32bis - SESSION INITIATED");
-      }, (connectTime - now) * 1000);
-      
-      const chOsc = audioCtx.createOscillator();
-      const chGain = audioCtx.createGain();
-      chOsc.type = 'triangle';
-      chOsc.frequency.setValueAtTime(800, connectTime);
-      chOsc.frequency.setValueAtTime(1600, connectTime + 0.1);
-      
-      chGain.gain.setValueAtTime(0, connectTime);
-      chGain.gain.linearRampToValueAtTime(0.05, connectTime + 0.02);
-      chGain.gain.setValueAtTime(0.05, connectTime + 0.18);
-      chGain.gain.exponentialRampToValueAtTime(0.0001, connectTime + 0.3);
-      
-      chOsc.connect(chGain);
-      chGain.connect(audioCtx.destination);
-      chOsc.start(connectTime);
-      chOsc.stop(connectTime + 0.35);
-      
-      setTimeout(onCompleted, (connectTime + 0.35 - now) * 1000);
-    }
-
-    // Connect button trigger
-    function startConnection() {
-      initAudio();
-      document.getElementById('connectBtn').style.display = 'none';
-      const consoleEl = document.getElementById('connectConsole');
-      
-      playDialUpSound(
-        (msg) => {
-          consoleEl.innerHTML += `\n${msg}`;
-          consoleEl.scrollTop = consoleEl.scrollHeight;
-        },
-        () => {
-          // Transition screens
-          document.getElementById('connectOverlay').style.opacity = '0';
-          setTimeout(() => {
-            document.getElementById('connectOverlay').style.display = 'none';
-            const termScreen = document.getElementById('terminalScreen');
-            termScreen.style.display = 'block';
-            document.getElementById('terminalInput').focus();
-            isConnected = true;
-            loadHomeScreen();
-          }, 600);
-        }
-      );
-    }
-
-    // Trigger connect on pressing Enter in overlay
-    window.addEventListener('keydown', function(e) {
-      if (!isConnected && e.key === 'Enter') {
-        const btn = document.getElementById('connectBtn');
-        if (btn && btn.style.display !== 'none') {
-          startConnection();
-        }
-      }
-    });
-
-    // Custom Typewriter printing
-    function typeHTML(targetEl, sourceHTMLCode, speed, callback) {
-      // Split by character but process HTML tags atomically to avoid broken rendering
-      let parts = [];
-      let temp = '';
-      let insideTag = false;
-      
-      for (let i = 0; i < sourceHTMLCode.length; i++) {
-        const char = sourceHTMLCode[i];
-        if (char === '<') {
-          if (temp) {
-            parts.push({ type: 'text', content: temp });
-            temp = '';
-          }
-          insideTag = true;
-          temp += char;
-        } else if (char === '>') {
-          temp += char;
-          parts.push({ type: 'tag', content: temp });
-          temp = '';
-          insideTag = false;
-        } else {
-          temp += char;
-        }
-      }
-      if (temp) {
-        parts.push({ type: insideTag ? 'tag' : 'text', content: temp });
-      }
-
-      let currentPartIndex = 0;
-      let currentCharIndex = 0;
-
-      function typeNext() {
-        if (currentPartIndex >= parts.length) {
-          if (callback) callback();
-          return;
-        }
-
-        const part = parts[currentPartIndex];
-        if (part.type === 'tag') {
-          targetEl.innerHTML += part.content;
-          currentPartIndex++;
-          typeNext();
-        } else {
-          if (currentCharIndex < part.content.length) {
-            const char = part.content[currentCharIndex];
-            targetEl.innerHTML += char;
-            
-            // Type sound (avoid click sound on newlines or spaces)
-            if (char !== ' ' && char !== '\n' && char !== '\r') {
-              playClickSound();
-            }
-            
-            currentCharIndex++;
-            scrollBottom();
-            setTimeout(typeNext, speed);
-          } else {
-            currentCharIndex = 0;
-            currentPartIndex++;
-            typeNext();
-          }
-        }
-      }
-      typeNext();
-    }
-
-    function scrollBottom() {
-      const term = document.getElementById('terminalScreen');
-      term.scrollTop = term.scrollHeight;
-    }
-
-    // Load BBS HomeScreen
-    function loadHomeScreen() {
-      const homeSource = document.getElementById('homeScreenContent').innerHTML;
-      const history = document.getElementById('terminalHistory');
-      
-      typeHTML(history, homeSource, 6, () => {
-        document.getElementById('inputLine').style.display = 'flex';
-        document.getElementById('terminalInput').focus();
-        scrollBottom();
-      });
-    }
-
-    // Keystroke sound and sync for text input
-    const termInput = document.getElementById('terminalInput');
-    termInput.addEventListener('keydown', function(e) {
-      if (e.key === 'Enter') {
-        const cmd = termInput.value.trim();
-        termInput.value = '';
-        if (cmd) {
-          executeCommand(cmd);
-        }
-      } else if (e.key.length === 1 || e.key === 'Backspace') {
-        playClickSound();
-      }
-    });
-
-    // Make clicking the screen focus the text input
-    document.getElementById('terminalScreen').addEventListener('click', () => {
-      document.getElementById('terminalInput').focus();
-    });
-
-    // Direct menu clicking handler
-    function handleMenuSelection(num) {
-      if (!isConnected) return;
-      playBeep(600, 0.08);
-      document.getElementById('terminalInput').value = num;
-      executeCommand(num);
-    }
-
-    // Command executor logic
-    function executeCommand(rawCmd) {
-      const history = document.getElementById('terminalHistory');
-      const cmd = rawCmd.toLowerCase().trim();
-      
-      // Append entered prompt first
-      history.innerHTML += `<div class="terminal-input-line"><span class="prompt-prefix">GUEST@THEMB_BBS:~$</span><span>${rawCmd}</span></div>`;
-      scrollBottom();
-      
-      let response = '';
-      
-      switch (cmd) {
-        case '1':
-        case 'about':
-          response = `
-<br>
-<span class="glow-text">======================================================================</span>
-<span class="highlight">SYSTEM RECORD: ABOUT THEMB</span>
-<span class="glow-text">======================================================================</span>
-THEMB is a premium digital design studio focusing on:
-  - <span class="highlight">UI/UX & Product Design</span>: Creating high-end web & mobile experiences.
-  - <span class="highlight">Design Systems</span>: Crafting highly scalable component libraries.
-  - <span class="highlight">Brand Identity</span>: Crafting bespoke aesthetic architectures.
-
-Our philosophy matches Swiss minimalism with technological elegance.
-This BBS console verifies that our root server domain is linked to the 
-GitHub pages host.
-<span class="glow-text">======================================================================</span>
-<br>
-`;
-          break;
-        case '2':
-        case 'projects':
-          response = `
-<br>
-<span class="glow-text">======================================================================</span>
-<span class="highlight">SYSTEM ARCHIVE: PROJECTS & WORK</span>
-<span class="glow-text">======================================================================</span>
-[ ACCESSING SECURE DATABANK... ]
-[ PARSING IMAGE METADATA... ]
-
-<span class="highlight">ERROR 403: BANDWIDTH CAPACITY EXCEEDED</span>
-The current line connection (14.4 Kbps COM1 Dial-Up) does not support the 
-transmission of high-resolution digital media assets. 
-
-To view our portfolio, please check back once we upgrade the system line
-(coming soon!).
-<span class="glow-text">======================================================================</span>
-<br>
-`;
-          break;
-        case '3':
-        case 'contact':
-          response = `
-<br>
-<span class="glow-text">======================================================================</span>
-<span class="highlight">COMMS LINK: CONTACT CHANNELS</span>
-<span class="glow-text">======================================================================</span>
-For design consultations or inquiries:
-  - <span class="highlight">E-Mail Direct:</span> hello@themb.design
-  - <span class="highlight">GitHub Org:</span> github.com/themb
-  - <span class="highlight">Terminal ID:</span> Node-01@COM1
-
-To transmit an instant message via line, type: <span class="highlight">mail [your message]</span>
-<span class="glow-text">======================================================================</span>
-<br>
-`;
-          break;
-        case '4':
-        case 'theme':
-          themeIndex = (themeIndex + 1) % themes.length;
-          const newTheme = themes[themeIndex];
-          
-          // Remove old theme classes and add new one
-          document.body.className = newTheme.class;
-          document.getElementById('currentThemeName').innerText = newTheme.name;
-          
-          response = `
-<br>
-Phosphor theme altered. 
-Display set to: <span class="highlight">${newTheme.name}</span>
-<br>
-`;
-          break;
-        case 'clear':
-          history.innerHTML = '';
-          scrollBottom();
-          return;
-        case 'help':
-          response = `
-<br>
-<span class="highlight">THEMB BBS v1.0 HELP DIRECTORY</span>
-Type the number or command and press Enter:
-  - <span class="highlight">1</span> or <span class="highlight">about</span>    : Information about the studio.
-  - <span class="highlight">2</span> or <span class="highlight">projects</span> : View the portfolio and works.
-  - <span class="highlight">3</span> or <span class="highlight">contact</span>  : Display email and communication nodes.
-  - <span class="highlight">4</span> or <span class="highlight">theme</span>    : Cycle phosphor monitor colors.
-  - <span class="highlight">clear</span>      : Clear the screen history.
-  - <span class="highlight">date</span>       : Output current system time.
-  - <span class="highlight">exit</span>       : Disconnect from BBS.
-<br>
-`;
-          break;
-        case 'date':
-          response = `<br>Current System Time: <span class="highlight">${new Date().toUTCString()}</span><br><br>`;
-          break;
-        case 'exit':
-          response = `<br>Disconnecting line COM1... Good-bye!<br><br>`;
-          setTimeout(() => {
-            isConnected = false;
-            document.getElementById('terminalScreen').style.display = 'none';
-            document.getElementById('connectConsole').innerHTML = 'NO CARRIER.\nCONNECTION TERMINATED BY REMOTE HOST.';
-            document.getElementById('connectBtn').style.display = 'block';
-            document.getElementById('connectOverlay').style.opacity = '1';
-            document.getElementById('connectOverlay').style.display = 'flex';
-          }, 1200);
-          break;
-        default:
-          if (cmd.startsWith('mail ')) {
-            const mailMsg = rawCmd.substring(5).trim();
-            response = `
-<br>
-[ TRANSMITTING MAIL PACKET ]
-"${mailMsg}"
-.............................. <span class="highlight">SENT SUCCESS!</span>
-Thank you! Your message has been saved to the node mailbox.
-<br>
-`;
-          } else {
-            response = `<br>Command not recognized. Type <span class="highlight">help</span> for a list of available options.<br><br>`;
-          }
-          break;
-      }
-      
-      const responseContainer = document.createElement('div');
-      history.appendChild(responseContainer);
-      
-      // Display output typing slightly faster for interactive commands
-      typeHTML(responseContainer, response, 3, () => {
-        scrollBottom();
-        document.getElementById('terminalInput').focus();
-      });
-    }
-  </script>
 </body>
 </html>
